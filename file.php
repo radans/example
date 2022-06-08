@@ -3,21 +3,21 @@
 public function store(Request $request)
     {
         $request->validate([
-            'emri' => 'required',
-            'adresa' => 'required',
-            'qyteti' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'town' => 'required',
             'email' => 'required|unique:users',
             'password' => 'required|string|min:4|confirmed',
             'telefoni' => 'required',
         ]);
-        $shitesi = User::create([
-            'emri' => $request->emri,
-            'adresa' => $request->adresa,
-            'qyteti' => $request->qyteti,
+        $user = User::create([
+            'emri' => $request->email,
+            'adresa' => $request->address,
+            'qyteti' => $request->town,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'telefoni' => $request->telefoni,
-            'niveli' => 'admin',
+            'phone' => $request->phone,
+            'role' => 'admin',
         ]);
         return back();
 
