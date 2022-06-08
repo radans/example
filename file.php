@@ -1,5 +1,5 @@
 <?php
-
+// Controller function example
 public function store(Request $request)
     {
         $request->validate([
@@ -22,3 +22,9 @@ public function store(Request $request)
         return back();
 
     }
+
+// Route example
+Route::get('seller', 'SellerController@index');
+Route::post('seller', 'SellerController@store');
+Route::get('seller/{seller}', 'SellerController@edit');
+Route::patch('seller', 'SellerController@update');
