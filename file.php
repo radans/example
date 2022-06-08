@@ -20,7 +20,16 @@ public function store(Request $request)
             'role' => 'admin',
         ]);
         return back();
+    }
 
+    // Controller function example updated with FormRequest
+    public function store(SaveUserRequest $request)
+    {
+        $data = $request->validated();
+        $data['password'] = Hash::make($request->password);
+        
+        $user = User::create($data);
+        return back();
     }
 
 // Route example
