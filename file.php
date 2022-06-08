@@ -19,7 +19,6 @@ public function store(Request $request)
             'telefoni' => $request->telefoni,
             'niveli' => 'admin',
         ]);
-        toastr()->success('Shitësi i ri është regjistruar me sukses!');
         return back();
 
     }
